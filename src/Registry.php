@@ -16,7 +16,7 @@ class Registry
 
     protected $payload;
 
-    public function __construct($service, $resource, $apiKey)
+    public function __construct($service, $resource, $apiKey = '')
     {
         $this->dbService = $service;
         $this->dbResource = $resource;
@@ -53,7 +53,7 @@ class Registry
         }
     }
 
-    protected function deviceExists($mac)
+    public function deviceExists($mac)
     {
         $rs = ServiceManager::handleRequest(
             $this->dbService,
